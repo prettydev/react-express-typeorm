@@ -17,7 +17,8 @@ router.get(
 );
 
 //Create a new item
-router.post("/", [checkJwt, checkRole(["ADMIN"])], InvoiceController.newItem);
+// router.post("/", [checkJwt, checkRole(["ADMIN"])], InvoiceController.newItem);
+router.post("/", InvoiceController.newItem);
 
 //Edit one item
 router.patch(

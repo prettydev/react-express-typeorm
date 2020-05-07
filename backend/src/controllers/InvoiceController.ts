@@ -56,7 +56,8 @@ class InvoiceController {
     }
 
     //If all ok, send 201 response
-    res.status(201).send("Item created");
+    // res.status(201).send("Item created");
+    res.status(201).send(item);
   };
 
   static editItem = async (req: Request, res: Response) => {

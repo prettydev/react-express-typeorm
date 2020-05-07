@@ -16,7 +16,7 @@ export class Invoice {
   id: number;
 
   @Column()
-  @Length(4, 20)
+  @Length(10, 200)
   description: string;
 
   @Column()

@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
 
 import { useStoreState, useStoreActions } from '../../hooks';
+import InvoiceEntryForm from '../InvoiceEntryForm';
 import useStyles from './styles';
 
-const Home: React.FC = () => {
-  const reverseEntries = useStoreState(state => state.guestbook.reverseEntries);
-  const getEntries = useStoreActions(state => state.guestbook.getEntries);
+const Invoice: React.FC = () => {
+  const reverseEntries = useStoreState(state => state.invoice.reverseEntries);
+  const getEntries = useStoreActions(state => state.invoice.getEntries);
   const classes = useStyles();
 
   useEffect(() => {
@@ -14,12 +15,12 @@ const Home: React.FC = () => {
   }, []); // eslint-disable-line
   return (
     <div>
+      <InvoiceEntryForm />
       {reverseEntries.map(entry => (
         <Card className={classes.entryCard} key={entry.id}>
           <CardContent>
-            <Typography variant="h2">{entry.name}</Typography>
-            <Typography variant="body1">{entry.content}</Typography>
-            <Typography variant="caption">{entry.submitted}</Typography>
+            <Typography variant="h2">{entry.description}</Typography>
+            <Typography variant="body1">{entry.role}</Typography>
           </CardContent>
         </Card>
       ))}
@@ -27,4 +28,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Invoice;
