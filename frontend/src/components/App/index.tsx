@@ -17,14 +17,17 @@ const App: React.FC = () => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            🍔
-          </IconButton>
           <Button component={Link} to="/" color="inherit">
             Home
           </Button>
           <Button component={Link} to="/subscribe" color="inherit">
             Subscribe
+          </Button>
+          <Button component={Link} to="/cancel" color="inherit">
+            Cancel subscription
+          </Button>
+          <Button component={Link} to="/billing" color="inherit">
+            Edit billing
           </Button>
           <Button component={Link} to="/invoice" color="inherit">
             Invoice
@@ -35,6 +38,8 @@ const App: React.FC = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/subscribe" component={Subscribe} />
+          <Route exact path="/cancel" component={Subscribe} />
+          <Route exact path="/billing" component={Subscribe} />
           <Route exact path="/invoice" component={Invoice} />
           <Redirect to="/" />
         </Switch>
