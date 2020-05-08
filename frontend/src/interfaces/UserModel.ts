@@ -2,11 +2,14 @@ import { Action, Thunk, Computed } from 'easy-peasy';
 
 import UserEntry from './UserEntry';
 
-export default interface InvoiceModel {
+export default interface UserModel {
   entries: UserEntry[];
-  reverseEntries: Computed<InvoiceModel, UserEntry[]>;
-  setEntries: Action<InvoiceModel, UserEntry[]>;
-  addEntry: Action<InvoiceModel, UserEntry>;
-  createEntry: Thunk<InvoiceModel, UserEntry>;
-  getEntries: Thunk<InvoiceModel>;
+  entry: UserEntry;
+  reverseEntries: Computed<UserModel, UserEntry[]>;
+  setEntries: Action<UserModel, UserEntry[]>;
+  setEntry: Action<UserModel, UserEntry>;
+  addEntry: Action<UserModel, UserEntry>;
+  createEntry: Thunk<UserModel, UserEntry>;
+  getEntries: Thunk<UserModel>;
+  getEntry: Thunk<UserModel>;
 }

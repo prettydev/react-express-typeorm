@@ -7,16 +7,29 @@ import useStyles from './styles';
 
 const Home: React.FC = () => {
   const reverseEntries = useStoreState(state => state.user.reverseEntries);
+  // const entry = useStoreState(state => state.user.entry);
   const getEntries = useStoreActions(state => state.user.getEntries);
+  const getEntryArray = useStoreActions(state => state.user.getEntry);
+  // const getEntry = getEntryArray[0];
   const classes = useStyles();
 
   useEffect(() => {
-    getEntries();
+    getEntryArray();
   }, []); // eslint-disable-line
   return (
-    <div style={{ border: '1px gray solid' }}>
-      <UserEntryForm />
-    </div>
+    <>
+      {
+        //   entry && (
+        //   <div>
+        //     <h1>{entry.username}</h1>
+        //     <h2>{entry.plan}</h2>
+        //   </div>
+        // )
+      }
+      <div style={{ border: '1px gray solid' }}>
+        <UserEntryForm />
+      </div>
+    </>
   );
 };
 
